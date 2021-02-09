@@ -1,0 +1,10 @@
+$primary-color: #E6D05E;
+
+$background-colors: (
+    "dark-grey": #2B2B2B,
+    "light-grey": #515151
+);
+
+@function background-color($color-name) {
+    @return map-get($background-colors, $color-name);
+}

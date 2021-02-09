@@ -1,0 +1,64 @@
+<!--<header class="bg-secondary">
+    <nav class="container d-flex justify-content-between py-3">
+        <a class="logo me-5" href="#"><img class="h-100 w-100" src="assets/svg/CinemaFile_Logo.svg" alt="Logo"></a>
+
+        <form class="search-bar d-flex flex-fill" action="#" method="GET">
+            <select class="border-left px-1">
+                <option value="">All</option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+
+            <input class="border-0 ps-3 flex-fill" type="search" placeholder="Buscar titulos, directores, etc...">
+
+            <button class="border-right bg-white d-flex justify-content-center align-items-center px-3" type="submit">
+                <fa-icon [icon]="faSearch"></fa-icon>
+            </button>
+        </form>
+
+        <button class="btn bg-transparent text-white border-0">
+            <fa-icon [icon]="faUser"></fa-icon>
+            <span><strong>Log in</strong></span>
+        </button>
+
+        <button><i></i></button>
+    </nav>
+</header>-->
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-background">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img class="h-100 w-100" src="assets/svg/CinemaFile_Logo.svg" alt="Logo"></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarSupportedContent">
+                <form class="mb-2 mb-lg-0 mx-auto mx-lg-0 me-lg-4 ms-lg-auto w-50" action="GET">
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <select class="h-100 border-left ps-2" aria-label="Default select example">
+                                <option selected value="all">All</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                            </select>
+                        </div>
+
+                        <input type="search" placeholder="Buscar peliculas, series..." aria-describedby="button-addon5" class="form-control border-top-0 border-bottom-0 border-gray">
+                        
+                        <div class="input-group-append">
+                            <button type="submit" class="h-100 w-100 bg-white border-0 border-right px-2"><fa-icon [icon]="faSearch"></fa-icon></button>
+                        </div>
+                    </div>
+                </form>
+
+                <ul class="navbar-nav mx-auto mx-lg-0">
+                    <li class="nav-item">
+                        <a class="navbar-link" aria-current="page" href="#"><fa-icon [icon]="faUser"></fa-icon><strong> Log in</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

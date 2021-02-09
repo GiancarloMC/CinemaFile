@@ -1,0 +1,48 @@
+/*.logo {
+    height: 40px;
+    width: 100px;
+}
+
+.search-bar {
+    height: 90%;
+}*/
+
+@import "src/styles";
+
+.navbar-background {
+    background-color: background-color(dark-grey);
+}
+
+.border-left {
+    border-style: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-right: 1px solid gray;
+}
+
+.border-right {
+    border-style: none;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.navbar-brand {
+    width: 150px;
+}
+
+.navbar-nav {
+    width: fit-content;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: white;
+    transition-property: color;
+    transition-duration: 0.2s;
+}
+
+.navbar-link:hover {
+    color: $primary-color;
+}
+
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
