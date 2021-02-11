@@ -1,10 +1,19 @@
 $primary-color: #E6D05E;
 
-$background-colors: (
+$social-media-icons-colors: (
+    "facebook": #1877F2,
+    "github": #DE9E20
+);
+
+$backgrounds-colors: (
     "dark-grey": #2B2B2B,
     "light-grey": #515151
 );
 
+@function social-media-icon-color($color-name) {
+    @return map-get($social-media-icons-colors, $color-name);
+}
+
 @function background-color($color-name) {
-    @return map-get($background-colors, $color-name);
+    @return map-get($backgrounds-colors, $color-name);
 }

@@ -1,0 +1,24 @@
+@import "src/styles";
+
+.footer-background {
+    background-color: background-color(dark-grey);
+}
+
+.social-media-link {
+    width: 3rem;
+    height: 3rem;
+}
+
+.social-media-icon {
+    font-size: 3rem;
+}
+
+.facebook-icon {
+    color: social-media-icon-color("facebook");
+}
+
+.github-icon {
+    color: social-media-icon-color("github");
+}
+
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
