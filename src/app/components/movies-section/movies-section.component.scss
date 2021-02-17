@@ -1,0 +1,14 @@
+@import "src/styles";
+
+.main-background {
+    background-color: black;
+}
+
+.select-background {
+    background-color: background-color("light-grey");
+    -moz-appearance: none; 
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
