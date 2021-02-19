@@ -4,22 +4,59 @@
     background-color: black;
 }
 
-.select-background {
+.gray-button {
     background-color: background-color("light-grey");
     -moz-appearance: none; 
     -webkit-appearance: none;
     cursor: pointer;
 }
 
+.gray-button:hover {
+    background-color: lighten($color: background-color("light-grey"), $amount: 20%);
+}
+
+.movie > div {
+    transform: translateY(100%);
+    background-color: rgba($color: black, $alpha: 0.5);
+    transition-property: transform;
+    transition-duration: 0.2s;
+}
+
+.movie:hover > div {
+    transform: translateY(0);
+}
+
+.movie-button {
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    background-color: $primary-color;
+    border: solid 1px $primary-color;
+    transition-property: color, background-color, border-color;
+    transition-duration: 0.2s;
+}
+
+.movie-button:hover {
+    color: white;
+    background-color: black;
+    border-color: white;
+}
+
 .movie-rating {
-    font-size: 1.2rem;
+    font-size: 2rem;
     padding: 0.4em 0.6em;
     background-color: background-color("dark-grey");
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .page-button {
     padding: 0.3em 0.8em;
+}
+
+@media (min-width: 576px) { 
+    .movie-button, .movie-rating {
+        font-size: 1.2rem;
+    }
 }
 
 @import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
