@@ -1,0 +1,43 @@
+@import "src/sass/helpers/variables";
+
+.custom-text-secondary {
+    color: rgba($color: white, $alpha: 0.8);
+}
+
+.modal-background {
+    font-size: 1.2rem;
+    background-color: background-color("dark-grey");
+    border-radius: 15px;
+}
+
+.movie-rating {
+    font-size: 2rem;
+    width: 70px;
+    height: 70px;
+    background-color: background-color("green");
+}
+
+.modal-icon {
+    transition-property: color;
+    transition-duration: 0.2s;
+}
+
+.modal-icon:hover {
+    color: $primary-color;
+}
+
+.progress {
+    height: 25px;
+}
+
+.progress-bar {
+    background-color: background-color("light-grey");
+}
+
+.modal-body {
+    padding-left: 1.4em;
+}
+
+.description {
+    font-size: 0.8rem;
+}

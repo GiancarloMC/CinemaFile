@@ -7,13 +7,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './components/footer/footer.component';
 import { MoviesSectionComponent } from './components/movies-section/movies-section.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    MoviesSectionComponent
+    MoviesSectionComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
