@@ -1,7 +1,41 @@
-@import "src/sass/helpers/variables";
+@import "src/styles";
 
-.custom-text-secondary {
-    color: rgba($color: white, $alpha: 0.8);
+
+.description {
+    font-size: 0.8rem;
+}
+
+.trailer-button {
+    background-color: $primary-color;
+    font-size : 1rem;
+}
+
+.trailer-button:hover {
+    background-color: white;
+}
+
+.amazon-button {
+    background-color: background-color("dark-green");
+}
+
+.amazon-button:hover {
+    background-color: lighten($color: background-color("dark-green"), $amount: 30%);
+}
+
+.itunes-button {
+    background-color: background-color("violet");
+}
+
+.itunes-button:hover {
+    background-color: lighten($color: background-color("violet"), $amount: 30%);
+}
+
+.blu-ray-button {
+    background-color: background-color("light-blue");
+}
+
+.blu-ray-button:hover {
+    background-color: lighten($color: background-color("light-blue"), $amount: 30%);
 }
 
 .modal-background {
@@ -26,18 +60,22 @@
     color: $primary-color;
 }
 
-.progress {
+.custom-progress {
     height: 25px;
 }
 
-.progress-bar {
+.custom-progress-bar {
     background-color: background-color("light-grey");
 }
 
-.modal-body {
+.custom-modal-body {
     padding-left: 1.4em;
 }
 
-.description {
+.custom-text-secondary {
+    color: rgba($color: white, $alpha: 0.7);
+}
+
+.custom-button {
     font-size: 0.8rem;
 }

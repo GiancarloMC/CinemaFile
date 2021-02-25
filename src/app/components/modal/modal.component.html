@@ -15,28 +15,28 @@
                             <strong>98</strong>
                         </div>
 
-                        <div class="progress mt-4 rounded-pill bg-transparent position-relative">
+                        <div class="custom-progress progress mt-4 rounded-pill bg-transparent position-relative">
                             <p class="position-absolute text-white bg-transparent my-1 ms-2"><strong>Metacritic</strong></p>
                             <p class="position-absolute text-white bg-transparent end-0 my-1 me-2"><strong>65</strong></p>
-                            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="custom-progress-bar progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
 
-                        <div class="progress mt-3 rounded-pill bg-transparent position-relative">
+                        <div class="custom-progress progress mt-3 rounded-pill bg-transparent position-relative">
                             <p class="position-absolute text-white bg-transparent my-1 ms-2"><strong>IMDb</strong></p>
                             <p class="position-absolute text-white bg-transparent end-0 my-1 me-2"><strong>68</strong></p>
-                            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="custom-progress-bar progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
 
-                        <div class="progress mt-3 rounded-pill bg-transparent position-relative">
+                        <div class="custom-progress progress mt-3 rounded-pill bg-transparent position-relative">
                             <p class="position-absolute text-white bg-transparent my-1 ms-2"><strong>Letterboxd</strong></p>
                             <p class="position-absolute text-white bg-transparent end-0 my-1 me-2"><strong>69</strong></p>
-                            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="custom-progress-bar progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
 
-                        <div class="progress mt-3 rounded-pill bg-transparent position-relative">
+                        <div class="custom-progress progress mt-3 rounded-pill bg-transparent position-relative">
                             <p class="position-absolute text-white bg-transparent my-1 ms-2"><strong>Audience Other</strong></p>
                             <p class="position-absolute text-white bg-transparent end-0 my-1 me-2"><strong>70</strong></p>
-                            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="custom-progress-bar progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         
                         <button type="button" class="bg-transparent border-0 text-white py-0 position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close"><fa-icon class="modal-icon" [icon]="faTimes"></fa-icon></button>
@@ -44,16 +44,44 @@
                 </div>
             </div>
 
-            <div class="modal-body container">
+            <div class="custom-modal-body modal-body container">
                 <p class="description text-white fw-bold">Lorem ipsum dolor sit amet.</p>
-                <p class="description custom-text-secondary my-1">1975</p>
-                <p class="description custom-text-secondary">Drama, Crime</p>
-            </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <p class="description custom-text-secondary my-1 fw-bold">1975</p>
+
+                <p class="description custom-text-secondary fw-bold">Drama, Crime</p>
+
+                <button class="gray-button text-white border-0 rounded-3 px-2">R</button>
+
+                <p class="description custom-text-secondary my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex aliquam vitae, autem earum eaque placeat rem soluta? Recusandae voluptatibus eaque ab error dicta dolor. Sint, molestias fugit at quidem animi eius reiciendis laborum cum. Iste earum saepe pariatur modi dignissimos ipsam expedita tempore explicabo libero ad, illo perferendis sed suscipit?</p>
+
+                <p class="description custom-text-secondary"><strong>Director: </strong>Lorem, ipsum.</p>
+
+                <p class="description custom-text-secondary mb-2"><strong>Cast: </strong>Lorem, ipsum.</p>
+
+                <span class="description custom-text-secondary fw-bold me-2">Rent / Buy: </span>
+
+                <button class="custom-button amazon-button border-0 rounded-pill text-white py-1 px-2 me-2">Amazon Video</button>
+
+                <button class="custom-button itunes-button border-0 rounded-pill text-white py-1 px-2 me-2">ITunes</button>
+
+                <button class="custom-button blu-ray-button border-0 rounded-pill text-white py-1 px-2">Blu-ray</button>
+
+                <div class="container mt-3 p-0 mb-2">
+                    <div class="row">
+                        <div class="col">
+                            <button class="gray-button text-white border-0 rounded-3 px-2 me-2"><fa-icon [icon]="faEye"></fa-icon></button>
+
+                            <button class="gray-button text-white border-0 rounded-3 px-2 me-2"><fa-icon [icon]="faThumbsUp"></fa-icon></button>
+
+                            <button class="gray-button text-white border-0 rounded-3 px-2"><fa-icon [icon]="faStar"></fa-icon></button>
+                        </div>
+
+                        <div class="col position-relative">
+                            <button class="custom-button trailer-button position-absolute end-0 border-0 rounded-pill py-1 px-2 me-3 fw-bold">Watch Trailer</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
