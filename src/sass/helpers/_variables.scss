@@ -7,7 +7,11 @@ $social-media-icons-colors: (
 
 $backgrounds-colors: (
     "dark-grey": #2B2B2B,
-    "light-grey": #515151
+    "light-grey": #515151,
+    "green": #48D17A,
+    "dark-green": #2F9440,
+    "violet": #B644BE,
+    "light-blue": #3C80BC
 );
 
 @function social-media-icon-color($color-name) {
