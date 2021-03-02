@@ -4,7 +4,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   selector: 'app-movies-section',
   templateUrl: './movies-section.component.html',
   styleUrls: ['./movies-section.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.None
 })
 export class MoviesSectionComponent implements OnInit {
 

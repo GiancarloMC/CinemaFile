@@ -4,17 +4,6 @@
     background-color: black;
 }
 
-.gray-button {
-    background-color: background-color("light-grey");
-    -moz-appearance: none; 
-    -webkit-appearance: none;
-    cursor: pointer;
-}
-
-.gray-button:hover {
-    background-color: lighten($color: background-color("light-grey"), $amount: 20%);
-}
-
 .movie > div {
     transform: translateY(100%);
     background-color: rgba($color: black, $alpha: 0.5);
@@ -58,5 +47,3 @@
         font-size: 1.2rem;
     }
 }
-
-@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
