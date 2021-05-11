@@ -1,5 +1,5 @@
 @import "src/styles";
-
+@import "@yaireo/tagify/src/tagify.scss";
 
 .description {
     font-size: 0.8rem;
@@ -89,7 +89,7 @@
     border-top: solid 1px rgba($color: gray, $alpha: 0.5);
 }
 
-.login-button {
+.login-modal-button {
     font-size: 1.5rem;
     background-color: transparent;
     color: rgba($color: white, $alpha: 0.7);
@@ -97,7 +97,7 @@
     transition-duration: 0.2s;
 }
 
-.login-button:hover {
+.login-modal-button:hover {
     background-color: rgba($color: white, $alpha: 0.15);
     color: white;
 }
@@ -263,4 +263,28 @@
 .accordion-button:not(.collapsed) {
     border-bottom: none;
     background-color: transparent;
+}
+
+.tagify-input {
+    border-color: gray;
+}
+
+.tagify__input {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0.2 0.3em;
+    color: white;
+}
+
+.tagify__tag div, .tagify__tag__removeBtn {
+    color: white;
+}
+
+.tagify__tag div:before {
+    box-shadow: 0 0 0 1.1em background-color("light-grey") inset;
+}
+
+.tagify__tag:hover:not([readonly]) div::before, .tagify__tag:focus div::before {
+    box-shadow: 0 0 0 1.1em lighten($color: background-color("light-grey"), $amount: 20%) inset;
 }

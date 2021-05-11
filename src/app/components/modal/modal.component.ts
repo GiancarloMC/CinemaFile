@@ -11,11 +11,13 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { faUndo } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import Tagify from '@yaireo/tagify'
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ModalComponent implements OnInit {
 
@@ -39,6 +41,8 @@ export class ModalComponent implements OnInit {
 
   ngOnInit(): void {
     document.getElementById("auto-click-on-load").click();
+
+    var tagify = new Tagify(document.querySelector("#tagify-test"));
   }
 
   enableRegisterSection(value) {
