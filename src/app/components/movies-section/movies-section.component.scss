@@ -5,14 +5,16 @@
 }
 
 .movie > div {
-    transform: translateY(100%);
+    display: none;
     background-color: rgba($color: black, $alpha: 0.5);
-    transition-property: transform;
+    opacity: 0;
+    transition-property: opacity;
     transition-duration: 0.2s;
 }
 
 .movie:hover > div {
-    transform: translateY(0);
+    display: flex;
+    opacity: 1;
 }
 
 .movie-button {
