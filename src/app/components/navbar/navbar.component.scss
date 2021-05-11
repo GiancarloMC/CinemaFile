@@ -21,29 +21,123 @@
     border-bottom-right-radius: 15px;
 }
 
-.navbar-brand {
+.navbar-brand-link {
+    position: relative;
     width: 125px;
 }
 
-.navbar-nav {
+.navbar-brand-image {
+    transition-property: box-shadow, transform;
+    transition-duration: 0.2s;
+}
+
+.navbar-brand-link:hover .navbar-brand-image {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 0px saddlebrown;
+}
+
+.navbar-login {
     width: fit-content;
 }
 
-.navbar-link {
-    text-decoration: none;
+.search-bar {
+    width: 100%;
+}
+
+.search-bar-select {
+    position: relative;
+}
+
+.select-nav {
+    appearance:none;
+    color:gray;
+    font-weight: 500;
+    transition-property: color;
+    transition-duration: 0.2s;
+}
+
+.select-nav-arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1rem;
+    height: 100%;
+    pointer-events: none;
+}
+
+.select-nav-arrow::before {
+    content: "";
+    position: absolute;
+    right: 50%;
+    top: 45%;
+    width: 0;
+    height: 0;
+    border-left: 0.4em solid transparent;
+    border-right: 0.4em solid transparent;
+    border-top: 0.4em solid gray;
+    transition-property: border-top-color;
+    transition-duration: 0.2s;
+}
+
+.select-nav:hover, .select-nav:focus, .select-nav:hover + .select-nav-arrow::before, .select-nav:focus + .select-nav-arrow::before {
+    color: black;
+    border-top-color: black;
+}
+
+.search-bar-input {
+    width: 50%;
+    outline: none;
+    height: 2.2rem;
+    margin: 0;
+    border: 0;
+    font-weight: 500;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    padding: 0 0.8em;
+}
+
+.search-bar-input, .search-bar-input::placeholder {
+    color: gray;
+    transition-property: color;
+    transition-duration: 0.2s;
+}
+
+.search-bar-input:hover, .search-bar-input:hover::placeholder, .search-bar-input:focus, .search-bar-input:focus::placeholder {
+    color: black;
+}
+
+.search-bar-input:focus {
+    border-color: gray;
+    box-shadow: none;
+}
+
+.submit-button {
+    transition-property: color;
+    transition-duration: 0.2s;
+}
+
+.submit-button:hover {
+    color: goldenrod;
+}
+
+.login-button {
+    background: none;
+    border: none;
     color: white;
     transition-property: color;
     transition-duration: 0.2s;
 }
 
-.navbar-link:hover {
+.login-button:hover {
     color: $primary-color;
 }
 
 @media (min-width: 992px) { 
+    .search-bar {
+        width: 50%;
+    }
+
     .custom-border-top {
         border: none;
     }
 }
-
-@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";

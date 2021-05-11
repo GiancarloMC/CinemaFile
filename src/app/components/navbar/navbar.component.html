@@ -1,36 +1,39 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-background">
         <div class="container">
-            <a class="navbar-brand" href="#"><img class="h-100 w-100" src="assets/svg/CinemaFile_Logo.svg" alt="Logo"></a>
+            <a class="navbar-brand-link" href="#"><img class="navbar-brand-image h-100 w-100" src="assets/svg/CinemaFile_Logo.svg" alt="Logo"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="custom-border-top collapse navbar-collapse pt-4 pt-lg-0 mt-3 mt-lg-0" id="navbarSupportedContent">
-                <form class="mb-3 mb-lg-0 mx-auto mx-lg-0 me-lg-4 ms-lg-auto w-50" action="GET">
+                <form class="search-bar mb-3 mb-lg-0 mx-auto mx-lg-0 me-lg-4 ms-lg-auto" action="GET">
                     <div class="input-group">
-                        <div class="input-group-append">
-                            <select class="h-100 border-left ps-2" aria-label="Default select example">
-                                <option selected value="all">All</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
+                        <div class="search-bar-select input-group-append">
+                            <select class="select-nav h-100 border-left ps-2" #selectElement (click)="manageAdvancedSearchOption(); adjustWidth();" aria-label="Default select example">
+                                <option value="All ">All</option>
+                                <option value="Titles">Titles</option>
+                                <option value="Tv Episodes ">Tv Episodes</option>
+                                <option value="Celebrities">Celebrities</option>
+                                <option value="Companies  ">Companies</option>
+                                <option value="Keywords  ">Keywords</option>
+                                <option value="Advanced Search  ">Advanced Search</option>
                             </select>
+                            <div class="select-nav-arrow"></div>
                         </div>
 
-                        <input type="search" placeholder="Buscar peliculas, series..." aria-describedby="button-addon5" class="form-control border-top-0 border-bottom-0 border-gray">
+                        <input type="search" class="form-control search-bar-input border-top-0 border-bottom-0 border-gray" aria-describedby="button-addon5" placeholder="Buscar peliculas, series...">
                         
                         <div class="input-group-append">
-                            <button type="submit" class="h-100 w-100 bg-white border-0 border-right px-2"><fa-icon [icon]="faSearch"></fa-icon></button>
+                            <button type="submit" class="submit-button h-100 w-100 bg-white border-0 border-right px-2"><fa-icon [icon]="faSearch"></fa-icon></button>
                         </div>
                     </div>
                 </form>
 
-                <ul class="navbar-nav mx-auto mx-lg-0 my-2 my-lg-0">
-                    <li class="nav-item">
-                        <a class="navbar-link" aria-current="page" href="#"><fa-icon [icon]="faUser"></fa-icon><strong> Log in</strong></a>
-                    </li>
-                </ul>
+                <div class="navbar-login mx-auto mx-lg-0 my-2 my-lg-0">
+                    <button class="login-button" data-bs-toggle="modal" data-bs-target="#advanced-search-modal"><fa-icon [icon]="faUser"></fa-icon><strong> Log in</strong></button>
+                </div>
             </div>
         </div>
     </nav>
