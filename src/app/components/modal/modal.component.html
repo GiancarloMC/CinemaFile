@@ -1,8 +1,20 @@
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
+<button type="button" class="btn btn-primary mx-2 mt-2" data-bs-toggle="modal" data-bs-target="#movie-modal">
+    Launch Movie Modal
+</button>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<button type="button" class="btn btn-warning mt-2" data-bs-toggle="modal" data-bs-target="#login-modal" (click)="enableRegisterSection(false)">
+    Launch Login / Register Modal
+</button>
+
+<button type="button" class="btn btn-success ms-2 mt-2" data-bs-toggle="modal" data-bs-target="#advanced-search-modal">
+    Launch Advanced Search Modal
+</button>
+
+<button type="button" class="btn btn-danger ms-2 mt-2" data-bs-toggle="modal" data-bs-target="#page-number-modal">
+    Page Number Modal
+</button>
+
+<div class="modal fade" id="movie-modal" tabindex="-1" aria-labelledby="movie-modal-label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content modal-background">
             <div class="modal-header border-0 container pb-0">
@@ -39,7 +51,7 @@
                             <div class="custom-progress-bar progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         
-                        <button type="button" class="bg-transparent border-0 text-white py-0 position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close"><fa-icon class="modal-icon" [icon]="faTimes"></fa-icon></button>
+                        <button type="button" class="bg-transparent border-0 text-white py-0 position-absolute top-0 end-0 p-0" data-bs-dismiss="modal" aria-label="Close"><fa-icon class="button" [icon]="faTimes"></fa-icon></button>
                     </div>
                 </div>
             </div>
@@ -82,6 +94,221 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal-label" aria-hidden="true">
+    <div class="modal-size modal-dialog modal-dialog-centered mx-auto">
+        <div class="modal-content modal-background px-2">
+            <div class="modal-header border-0 container pb-0 pt-4">
+                <div class="row w-100 m-auto mb-4">
+                    <div class="col d-flex justify-content-end px-0">
+                        <button type="button" class="login-button login-button--active border-0 pb-1 px-2" (click)="enableRegisterSection(false)" [style.color]="!isRegisterSectionActive ? 'white' : ''"><fa-icon [icon]="faUser"></fa-icon> Login</button>
+                    </div>
+
+                    <div class="col position-relative px-4">
+                        <button type="button" class="login-button border-0 pb-1 px-2" 
+                        (click)="enableRegisterSection(true)" [style.color]="isRegisterSectionActive ? 'white' : ''"><fa-icon [icon]="faPlusCircle"></fa-icon> Register</button>
+
+                        <button type="button" class="bg-transparent border-0 text-white py-0 position-absolute top-0 end-0 p-0" data-bs-dismiss="modal" aria-label="Close"><fa-icon class="button" [icon]="faTimes"></fa-icon></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body container px-4 pb-4 pt-0">
+                <form class="custom-border-top d-flex flex-column pt-4" action="#" method="post">
+                    <div class="position-relative custom-input">
+                        <input class="login-input w-100 mb-3" type="text" placeholder="Username" pattern="(?=.{3,16}$)[a-zA-Z]+[-_\.]?[a-zA-Z]+\d{0,4}" required>
+                        <fa-icon class="placeholder position-absolute" [icon]="faUser"></fa-icon>
+                    </div>
+
+                    <ng-template [ngIf]="isRegisterSectionActive">
+                        <div class="position-relative custom-input">
+                            <input class="login-input w-100 mb-3" type="text" placeholder="Email" pattern="[a-zA-Z0-9_\.-]{3,16}@[a-zA-Z]{3,16}\.[a-zA-Z]{2,8}(\.[a-zA-Z]{2,8})?" required>
+                            <fa-icon class="placeholder position-absolute" [icon]="faEnvelope"></fa-icon>
+                        </div>
+                    </ng-template>
+
+                    <div class="position-relative custom-input">
+                        <input class="login-input w-100 mb-3" type="password" placeholder="Password" minlength="8" maxlength="16" required>
+                        <fa-icon class="placeholder position-absolute" [icon]="faKey"></fa-icon>
+                    </div>
+
+                    <ng-template [ngIf]="isRegisterSectionActive">
+                        <div class="position-relative custom-input">
+                            <input class="login-input w-100 mb-4" type="password" placeholder="Confirm Password" minlength="8" maxlength="16" required>
+                            <fa-icon class="placeholder position-absolute" [icon]="faKey"></fa-icon>
+                        </div>
+                    </ng-template>
+
+                    <ng-template [ngIf]="!isRegisterSectionActive">
+                        <div class="mb-4 container-fluid">
+                            <div class="row p-0">
+                                <div class="col p-0">
+                                    <input class="login-checkbox" type="checkbox">
+                                    <label class="custom-text-secondary ms-2" for="">Remember Me</label>
+                                </div>
+
+                                <div class="col p-0 d-flex justify-content-end">
+                                    <a class="button custom-text-secondary text-decoration-none" href="#">Forgot Password?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+
+                    <input class="submit-button border-0 rounded-pill text-center fw-bold py-2 mb-3" type="submit" value="{{ registerSubmitButtonText }}">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="advanced-search-modal" tabindex="-1" aria-labelledby="advanced-search-modal-label" aria-hidden="true">
+    <div class="modal-dialog mx-auto">
+        <div class="modal-content modal-background px-2">
+            <div class="modal-header border-0 pb-0 pt-4 d-flex justify-content-center align-items-center position-relative mb-4">
+                <fa-icon class="small-icon" [icon]="faSearch"></fa-icon>
+                <fa-icon class="big-icon" [icon]="faSearch"></fa-icon>
+
+                <span class="modal-title text-white ms-2">Advanced Search</span>
+
+                <button type="button" class="exit-button bg-transparent border-0 text-white py-0 position-absolute p-0" data-bs-dismiss="modal" aria-label="Close"><fa-icon class="button" [icon]="faTimes"></fa-icon></button>
+            </div>
+
+            <div class="modal-body container px-4 pb-4 pt-0">
+                <form class="custom-border-top d-flex flex-column pt-4" action="#" method="post">
+                    <div class="mb-4">
+                        <label class="text-white me-3">Media: </label>
+
+                        <select class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
+                            <option value="">All</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="text-white me-3">Genres: </label>
+                        
+                        <select class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
+                            <option value="">All</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="text-white me-3">Exclude Genres: </label>
+                        
+                        <select class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
+                            <option value="">None</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="text-white me-3">Language: </label>
+                        
+                        <select class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
+                            <option value="">All</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="text-white me-3">Pg-rating: </label>
+                        
+                        <select class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
+                            <option value="">All</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="text-white me-3">Tags: </label>
+                        
+                        <select class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
+                            <option value="">All</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4 container-fluid">
+                        <div class="row p-0 mb-4">
+                            <label class="col-1 text-white p-0">Year: </label>
+                    
+                            <div class="col-11 d-flex align-items-center ps-3">
+                                <input class="custom-range w-100 rounded-pill" type="range" min="1990" max="2021">
+                            </div>
+                        </div>
+
+                        <div class="row p-0">
+                            <label class="col-2 text-white p-0">Rating: </label>
+                    
+                            <div class="col-10 d-flex align-items-center ps-0">
+                                <input class="custom-range w-100 rounded-pill" type="range" min="1990" max="2021">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion mb-4 border-gray rounded-3 text-white" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                            <button id="auto-click-on-load" class="accordion-button text-white accordion-header-icon" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Search Fields
+                            </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <input type="text" class="search-fields-input w-100 my-2 p-2" placeholder="Title">
+
+                                <input type="text" class="search-fields-input w-100 my-2 p-2" placeholder="Director">
+        
+                                <input type="text" class="search-fields-input w-100 my-2 p-2" placeholder="Cast">
+        
+                                <input type="text" class="search-fields-input w-100 my-2 p-2" placeholder="Plot">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col text-white d-flex justify-content-end pe-5">
+                                <div class="advanced-search-submit-button">
+                                    <fa-icon class="advanced-search-submit-icon me-2" [icon]="faSearch"></fa-icon>
+                                    <span class="advanced-search-submit-text">Search</span>
+                                </div>
+                            </div>
+
+                            <div class="col text-white d-flex justify-content-start ps-5">
+                                <div class="advanced-search-submit-button">
+                                    <fa-icon class="advanced-search-submit-icon me-2" [icon]="faUndo"></fa-icon>
+                                    <span class="advanced-search-submit-text">Reset</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="page-number-modal" tabindex="-1" aria-labelledby="page-number-modal-label" aria-hidden="true">
+    <div class="modal-size modal-dialog modal-dialog-centered mx-auto">
+        <div class="modal-content modal-background px-2">
+            <div class="modal-header border-0 pb-0 pt-4 d-flex justify-content-center align-items-center position-relative mb-4">
+                <fa-icon class="big-icon" [icon]="faSearch"></fa-icon>
+
+                <span class="modal-title text-white ms-2">Go to Page...</span>
+
+                <button type="button" class="exit-button bg-transparent border-0 text-white py-0 position-absolute p-0" data-bs-dismiss="modal" aria-label="Close"><fa-icon class="button" [icon]="faTimes"></fa-icon></button>
+            </div>
+
+            <div class="modal-body container px-4 pb-4 pt-0">
+                <form class="custom-border-top d-flex flex-column pt-4" action="#" method="post">
+                    <div class="position-relative custom-input">
+                        <input class="login-input w-100 mb-4" type="number" min="1" placeholder="Page Number" value="1">
+                        <fa-icon class="placeholder position-absolute" [icon]="faArrowRight"></fa-icon>
+                    </div>
+
+                    <input class="submit-button border-0 rounded-pill text-center fw-bold py-2 mb-3" type="submit" value="GO">
+                </form>
             </div>
         </div>
     </div>

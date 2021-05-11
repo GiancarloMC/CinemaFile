@@ -38,6 +38,11 @@
     background-color: lighten($color: background-color("light-blue"), $amount: 30%);
 }
 
+.modal-size {
+    max-width: 400px;
+    margin-top: -4rem;
+}
+
 .modal-background {
     font-size: 1.2rem;
     background-color: background-color("dark-grey");
@@ -51,12 +56,12 @@
     background-color: background-color("green");
 }
 
-.modal-icon {
+.button {
     transition-property: color;
     transition-duration: 0.2s;
 }
 
-.modal-icon:hover {
+.button:hover {
     color: $primary-color;
 }
 
@@ -78,4 +83,184 @@
 
 .custom-button {
     font-size: 0.8rem;
+}
+
+.custom-border-top {
+    border-top: solid 1px rgba($color: gray, $alpha: 0.5);
+}
+
+.login-button {
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: rgba($color: white, $alpha: 0.7);
+    transition-property: color, background-color;
+    transition-duration: 0.2s;
+}
+
+.login-button:hover {
+    background-color: rgba($color: white, $alpha: 0.15);
+    color: white;
+}
+
+.login-input {
+    border: 0;
+    border-radius: 0.5em;
+    padding: 0.3rem 1rem 0.5rem 2.9rem;
+    outline: none;
+}
+
+.login-input, .login-input::placeholder, .login-input + fa-icon {
+    transition-property: color;
+    transition-duration: 0.2s;
+}
+
+.login-input:hover, .login-input:hover::placeholder, .login-input:hover + fa-icon {
+    color: black;
+}
+
+.login-input:focus, .login-input:focus::placeholder, .login-input:focus + fa-icon {
+    color: black;
+}
+
+.login-checkbox {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.placeholder {
+    left: 4%;
+    top: 2%;
+    font-size: 1.5rem;
+    color: gray;
+}
+
+.submit-button {
+    background-color: $primary-color;
+    transition-property: background-color, color;
+    transition-duration: 0.2s;
+}
+
+.submit-button:hover {
+    background-color: white;
+    color: rgb(143, 88, 5);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+}
+
+.exit-button {
+    top: 45%;
+    right: 6%;
+}
+
+.small-icon {
+    color: rgb(175, 175, 175);
+    font-size: 1rem;
+    margin-right: -0.75em;
+    margin-bottom: -0.65em;
+}
+
+.big-icon {
+    color: rgb(230, 230, 230);
+}
+
+.modal-options {
+    font-size: 1rem;
+}
+
+.custom-range {
+    appearance: none;
+    background-color: lighten($color: background-color("light-grey"), $amount: 10%);
+    height: 0.35rem;
+}
+
+.custom-range::-webkit-slider-thumb {
+    position: relative;
+    appearance: none;
+    background-color: white;
+    height: 2rem;
+    width: 2rem;
+    border: 10px solid darken($color:  background-color("light-grey"), $amount: 5%);
+    border-radius: 100%;
+    cursor: pointer;
+    transition-property: background-color;
+    transition-duration: 0.2s;
+}
+
+.custom-range::-webkit-slider-thumb:hover {
+    background-color: $primary-color;
+}
+
+.border-gray {
+    border: 1px solid rgba($color: white, $alpha: 0.4);
+}
+
+.search-fields-input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba($color: white, $alpha: 0.5);
+    color: rgba($color: white, $alpha: 0.7);
+    font-size: 1rem;
+    transition-property: color;
+    transition-duration: 0.2s;
+}
+
+.search-fields-input::placeholder {
+    color: rgba($color: white, $alpha: 0.7);
+    transition-property: color;
+    transition-duration: 0.2s;
+}
+
+.search-fields-input:hover, .search-fields-input:focus, .search-fields-input:hover::placeholder, .search-fields-input:focus::placeholder {
+    color: white;
+}
+
+.advanced-search-submit-button {
+    cursor: pointer;
+}
+
+.advanced-search-submit-text {
+    position: relative;
+}
+
+.advanced-search-submit-text::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 0;
+    left: 50%;
+    bottom: 0;
+    background-color: white;
+    transition-property: width, left;
+    transition-duration: 0.2s;
+}
+
+.advanced-search-submit-button:hover > .advanced-search-submit-text::after {
+    left: 0;
+    width: 100%;
+}
+
+.advanced-search-submit-icon {
+    color: $primary-color;
+}
+
+.accordion-button {
+    font-size: 1.2rem;
+    border: none;
+}
+
+.accordion-button:focus {
+    border-color: transparent;
+    outline: none;
+    box-shadow: none;
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+}
+
+.accordion-button:not(.collapsed) {
+    border-bottom: none;
+    background-color: transparent;
 }
