@@ -14,8 +14,6 @@
     Page Number Modal
 </button>
 
-<!--<input id="tagify-test" class="w-50 ms-2 mt-2" value='[{"value":"foo", "editable":false}, {"value":"bar"}]'>-->
-
 <div class="modal fade" id="movie-modal" tabindex="-1" aria-labelledby="movie-modal-label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content modal-background">
@@ -184,8 +182,10 @@
                     <div class="mb-4">
                         <label class="text-white me-3">Media: </label>
 
-                        <select class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
+                        <select id="selectElement" class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
                             <option value="">All</option>
+                            <option value="">Tv/Series</option>
+                            <option value="">Movies</option>
                         </select>
                     </div>
 
@@ -193,10 +193,6 @@
                         <label class="text-white me-3">Genres: </label>
 
                         <input id="tagify-test" class="tagify-input w-50 ms-2 mt-2 rounded-3" value='[{"value":"Any", "editable":false}]'>
-                        
-                        <!--<select class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
-                            <option value="">All</option>
-                        </select>-->
                     </div>
 
                     <div class="mb-4">

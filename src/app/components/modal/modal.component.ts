@@ -40,15 +40,55 @@ export class ModalComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let tagify = new Tagify(document.querySelector("#tagify-test"), {
+      whitelist: ["Any", "Action", "Horror", "Crime", "Comedy", "Romance"],
+      enforceWhitelist: true,
+      skipInvalid: true,
+      editTags: false,
+      backspace: false,
+      autoComplete: {
+        enabled: false
+      },
+      dropdown : {
+        classname     : "color-blue",
+        enabled       : 0,
+        maxItems      : 100,
+        position      : "text",
+        closeOnSelect : false,
+        highlightFirst: true
+    },
+      callbacks: {
+        "add": () => this.tagsCount(1, tagify),
+        "remove": () => this.tagsCount(0, tagify),
+      }
+    });
+    
     document.getElementById("auto-click-on-load").click();
-
-    var tagify = new Tagify(document.querySelector("#tagify-test"));
+    /*let selectElement: Element = document.querySelector("#selectElement");
+    console.log(selectElement);
+    this.adjustInputWidth(selectElement);*/
   }
 
-  enableRegisterSection(value) {
+  enableRegisterSection(value: boolean): void {
     this.isRegisterSectionActive = value;
 
     this.registerSubmitButtonText = value == true ? "REGISTER" : "LOGIN";
   }
+
+  tagsCount(value: number, input: Tagify): void {
+    let tags: NodeListOf<Element> = document.querySelectorAll(".tagify__tag");
+
+    if (tags.length + value == 0) {
+      input.settings.whitelist = ["Any", "Action", "Horror", "Crime", "Comedy", "Romance"];
+      return input.addTags(["Any"]);
+    }
+
+    input.settings.whitelist = ["Action", "Horror", "Crime", "Comedy", "Romance"];
+    return input.removeTags(["Any", "any"]);
+  }
+
+  /*adjustInputWidth(Element): void {
+    Element.nativeElement.style.width = String((Number(Element.nativeElement.value.length) + 1) * 8) + "px";
+  }*/
 
 }
