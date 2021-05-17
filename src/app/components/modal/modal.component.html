@@ -182,50 +182,44 @@
                     <div class="mb-4">
                         <label class="text-white me-3">Media: </label>
 
-                        <select id="selectElement" class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
-                            <option value="">All</option>
-                            <option value="">Tv/Series</option>
-                            <option value="">Movies</option>
+                        <select #selectElement (click)="adjustInputWidth()" class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
+                            <option value="Any  ">Any</option>
+                            <option value="Tv/Series">Tv/Series</option>
+                            <option value="Movies  ">Movies</option>
                         </select>
                     </div>
 
                     <div class="mb-4 d-flex justify-content-start align-items-center">
                         <label class="text-white me-3">Genres: </label>
 
-                        <input id="tagify-test" class="tagify-input w-50 ms-2 mt-2 rounded-3" value='[{"value":"Any", "editable":false}]'>
+                        <input id="tagify-input-genres" class="tagify-input w-50 ms-2 mt-2 rounded-3" value='[{"value":"Any", "editable":false}]'>
                     </div>
 
-                    <div class="mb-4">
+                    <div class="mb-4 d-flex justify-content-start align-items-center">
                         <label class="text-white me-3">Exclude Genres: </label>
-                        
-                        <select class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
-                            <option value="">None</option>
-                        </select>
+
+                        <input id="tagify-input-exclude-genres" class="tagify-input w-50 ms-2 mt-2 rounded-3" value='[{"value":"None", "editable":false}]'>
                     </div>
 
-                    <div class="mb-4">
-                        <label class="text-white me-3">Language: </label>
-                        
-                        <select class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
-                            <option value="">All</option>
-                        </select>
+                    <div class="mb-4 d-flex justify-content-start align-items-center">
+                        <label class="text-white me-3">Languages: </label>
+
+                        <input id="tagify-input-languages" class="tagify-input w-50 ms-2 mt-2 rounded-3" value='[{"value":"Any", "editable":false}]'>
                     </div>
 
-                    <div class="mb-4">
-                        <label class="text-white me-3">Pg-rating: </label>
-                        
-                        <select class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
-                            <option value="">All</option>
-                        </select>
+                    <div class="mb-4 d-flex justify-content-start align-items-center">
+                        <label class="text-white me-3">Pg-Ratings: </label>
+
+                        <input id="tagify-input-pg-ratings" class="tagify-input w-50 ms-2 mt-2 rounded-3" value='[{"value":"Any", "editable":false}]'>
                     </div>
 
-                    <div class="mb-4">
+                    <!--<div class="mb-4">
                         <label class="text-white me-3">Tags: </label>
                         
                         <select class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
                             <option value="">All</option>
                         </select>
-                    </div>
+                    </div>-->
 
                     <div class="mb-4 container-fluid">
                         <div class="row p-0 mb-4">

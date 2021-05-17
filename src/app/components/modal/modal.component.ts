@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChildren, AfterViewInit, QueryList } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
@@ -19,7 +19,9 @@ import Tagify from '@yaireo/tagify'
   styleUrls: ['./modal.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements OnInit, AfterViewInit {
+
+  @ViewChildren("selectElement") selectElements: QueryList<any>;
 
   faTimes = faTimes;
   faEye = faEye;
@@ -40,8 +42,28 @@ export class ModalComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let tagify = new Tagify(document.querySelector("#tagify-test"), {
-      whitelist: ["Any", "Action", "Horror", "Crime", "Comedy", "Romance"],
+    const tagifyInputGenres: Element = document.querySelector("#tagify-input-genres");
+    const tagifyInputExcludeGenres: Element = document.querySelector("#tagify-input-exclude-genres");
+    const tagifyInputLanguages: Element = document.querySelector("#tagify-input-languages");
+    const tagifyInputPgRatings: Element = document.querySelector("#tagify-input-pg-ratings");
+
+    const genresTags: String[] = ["Action", "Horror", "Crime", "Comedy", "Romance"];
+    const languagesTags: String[] = ["English", "Spanish", "French", "German", "Russian"]
+    const pgRatings: String[] = ["G", "PG", "PG-13", "R", "NC-17"]
+
+    this.createTagifyInput(tagifyInputGenres, "Any", genresTags);
+    this.createTagifyInput(tagifyInputExcludeGenres, "None", genresTags);
+    this.createTagifyInput(tagifyInputLanguages, "Any", languagesTags);
+    this.createTagifyInput(tagifyInputPgRatings, "Any", pgRatings);
+
+    document.getElementById("auto-click-on-load").click();
+  }
+
+  createTagifyInput(input: Element, defaultTag: string, tags: String[]): void {
+    const defaultTagWhitelist = [defaultTag, ...tags];
+
+    const tagifyInput = new Tagify(input, {
+      whitelist: defaultTagWhitelist,
       enforceWhitelist: true,
       skipInvalid: true,
       editTags: false,
@@ -58,15 +80,23 @@ export class ModalComponent implements OnInit {
         highlightFirst: true
     },
       callbacks: {
-        "add": () => this.tagsCount(1, tagify),
-        "remove": () => this.tagsCount(0, tagify),
+        "add": () => this.tagifyTagsCount(1, tagifyInput, defaultTag, [tags, defaultTagWhitelist]),
+        "remove": () => this.tagifyTagsCount(0, tagifyInput, defaultTag, [tags, defaultTagWhitelist]),
       }
     });
-    
-    document.getElementById("auto-click-on-load").click();
-    /*let selectElement: Element = document.querySelector("#selectElement");
-    console.log(selectElement);
-    this.adjustInputWidth(selectElement);*/
+  }
+
+  tagifyTagsCount(initialValue: number, tagifyInput: Tagify, defaultTag: String, whitelist: Array<String[]>): void {
+    const parentInput = document.querySelector("#" + tagifyInput.DOM.originalInput.id).previousElementSibling;
+    const tags: NodeListOf<Element> = parentInput.querySelectorAll(".tagify__tag");
+
+    if (tags.length + initialValue == 0) {
+      tagifyInput.settings.whitelist = whitelist[1];
+      return tagifyInput.addTags(defaultTag);
+    }
+
+    tagifyInput.settings.whitelist = whitelist[0];
+    return tagifyInput.removeTags(defaultTag);
   }
 
   enableRegisterSection(value: boolean): void {
@@ -75,20 +105,14 @@ export class ModalComponent implements OnInit {
     this.registerSubmitButtonText = value == true ? "REGISTER" : "LOGIN";
   }
 
-  tagsCount(value: number, input: Tagify): void {
-    let tags: NodeListOf<Element> = document.querySelectorAll(".tagify__tag");
-
-    if (tags.length + value == 0) {
-      input.settings.whitelist = ["Any", "Action", "Horror", "Crime", "Comedy", "Romance"];
-      return input.addTags(["Any"]);
-    }
-
-    input.settings.whitelist = ["Action", "Horror", "Crime", "Comedy", "Romance"];
-    return input.removeTags(["Any", "any"]);
+  ngAfterViewInit() {
+    this.adjustInputWidth();
   }
 
-  /*adjustInputWidth(Element): void {
-    Element.nativeElement.style.width = String((Number(Element.nativeElement.value.length) + 1) * 8) + "px";
-  }*/
+  adjustInputWidth() {
+    this.selectElements.forEach((element: any) => {
+      element.nativeElement.style.width = String((Number(element.nativeElement.value.length) + 1) * 8) + "px";
+    });
+  }
 
 }
