@@ -12,6 +12,7 @@ import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { faUndo } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import Tagify from '@yaireo/tagify'
+import { Options } from '@angular-slider/ngx-slider';
 
 @Component({
   selector: 'app-modal',
@@ -115,4 +116,17 @@ export class ModalComponent implements OnInit, AfterViewInit {
     });
   }
 
+  yearMinValue: number = 1900;
+  yearMaxValue: number = 2021;
+  yearsOptions: Options = {
+    floor: 1900,
+    ceil: 2021
+  };
+
+  ratingMinValue: number = 0;
+  ratingMaxValue: number = 100;
+  ratingsOptions: Options = {
+    floor: 0,
+    ceil: 100
+  };
 }

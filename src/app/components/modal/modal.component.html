@@ -180,7 +180,7 @@
             <div class="modal-body container px-4 pb-4 pt-0">
                 <form class="custom-border-top d-flex flex-column pt-4" action="#" method="post">
                     <div class="mb-4">
-                        <label class="text-white me-3">Media: </label>
+                        <label class="text-white me-3 mb-2">Media: </label>
 
                         <select #selectElement (click)="adjustInputWidth()" class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
                             <option value="Any  ">Any</option>
@@ -189,52 +189,44 @@
                         </select>
                     </div>
 
-                    <div class="mb-4 d-flex justify-content-start align-items-center">
-                        <label class="text-white me-3">Genres: </label>
-
-                        <input id="tagify-input-genres" class="tagify-input w-50 ms-2 mt-2 rounded-3" value='[{"value":"Any", "editable":false}]'>
-                    </div>
-
-                    <div class="mb-4 d-flex justify-content-start align-items-center">
-                        <label class="text-white me-3">Exclude Genres: </label>
-
-                        <input id="tagify-input-exclude-genres" class="tagify-input w-50 ms-2 mt-2 rounded-3" value='[{"value":"None", "editable":false}]'>
-                    </div>
-
-                    <div class="mb-4 d-flex justify-content-start align-items-center">
-                        <label class="text-white me-3">Languages: </label>
-
-                        <input id="tagify-input-languages" class="tagify-input w-50 ms-2 mt-2 rounded-3" value='[{"value":"Any", "editable":false}]'>
-                    </div>
-
-                    <div class="mb-4 d-flex justify-content-start align-items-center">
-                        <label class="text-white me-3">Pg-Ratings: </label>
-
-                        <input id="tagify-input-pg-ratings" class="tagify-input w-50 ms-2 mt-2 rounded-3" value='[{"value":"Any", "editable":false}]'>
-                    </div>
-
-                    <!--<div class="mb-4">
-                        <label class="text-white me-3">Tags: </label>
-                        
-                        <select class="modal-options gray-button text-white border-0 rounded-3 py-1 px-2">
-                            <option value="">All</option>
-                        </select>
-                    </div>-->
-
                     <div class="mb-4 container-fluid">
-                        <div class="row p-0 mb-4">
-                            <label class="col-1 text-white p-0">Year: </label>
+                        <div class="row p-0 mb-4 d-flex justify-content-start align-items-center">
+                            <label class="col-12 text-white p-0">Genres: </label>
+
+                            <input id="tagify-input-genres" class="tagify-input col-12 mt-2 rounded-3 mb-2" value='[{"value":"Any", "editable":false}]'>
+                        </div>
+
+                        <div class="row p-0 mb-4 d-flex justify-content-start align-items-center">
+                            <label class="col-12 text-white p-0">Exclude Genres: </label>
+
+                            <input id="tagify-input-exclude-genres" class="tagify-input col-12 mt-2 rounded-3 mb-1" value='[{"value":"None", "editable":false}]'>
+                        </div>
+
+                        <div class="row p-0 mb-4 d-flex justify-content-start align-items-center">
+                            <label class="col-12 text-white p-0">Languages: </label>
+
+                            <input id="tagify-input-languages" class="tagify-input col-12 mt-2 rounded-3 mb-1" value='[{"value":"Any", "editable":false}]'>
+                        </div>
+
+                        <div class="row p-0 mb-2 d-flex justify-content-start align-items-center">
+                            <label class="col-12 text-white p-0">Pg-Ratings: </label>
+
+                            <input id="tagify-input-pg-ratings" class="tagify-input col-12 mt-2 rounded-3 mb-2" value='[{"value":"Any", "editable":false}]'>
+                        </div>
+
+                        <div class="row p-0 mb-3">
+                            <label class="col-12 text-white p-0 pt-3">Year: </label>
                     
-                            <div class="col-11 d-flex align-items-center ps-3">
-                                <input class="custom-range w-100 rounded-pill" type="range" min="1990" max="2021">
+                            <div class="custom-ngx-slider col-12 mt-2 p-0">
+                                <ngx-slider [(value)]="yearMinValue" [(highValue)]="yearMaxValue" [options]="yearsOptions"></ngx-slider>
                             </div>
                         </div>
 
-                        <div class="row p-0">
-                            <label class="col-2 text-white p-0">Rating: </label>
-                    
-                            <div class="col-10 d-flex align-items-center ps-0">
-                                <input class="custom-range w-100 rounded-pill" type="range" min="1990" max="2021">
+                        <div class="row p-0 mb-2">
+                            <label class="col-12 text-white p-0 pt-3">Ratings: </label>
+                
+                            <div class="custom-ngx-slider col-12 mt-2 p-0">
+                                <ngx-slider [(value)]="ratingMinValue" [(highValue)]="ratingMaxValue" [options]="ratingsOptions"></ngx-slider>
                             </div>
                         </div>
                     </div>

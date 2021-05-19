@@ -289,3 +289,45 @@
 .tagify__tag:hover:not([readonly]) div::before, .tagify__tag:focus div::before {
     box-shadow: 0 0 0 1.1em lighten($color: background-color("light-grey"), $amount: 20%) inset;
 }
+
+.custom-ngx-slider {
+    .ngx-slider {
+        .ngx-slider-pointer {
+            background-color: darken($color:  background-color("light-grey"), $amount: 5%);
+        }
+
+        .ngx-slider-pointer:after {
+            width: 12px;
+            height: 12px;
+            top: 10px;
+            left: 10px;
+            border-radius: 32px;
+            transition-property: background-color;
+            transition-duration: 0.2s;
+        }
+
+        .ngx-slider-pointer:focus:after {
+            background-color: white;
+       }
+
+        .ngx-slider-pointer:hover:after {
+            background-color: $primary-color;
+        }
+
+        .ngx-slider-bar {
+            background-color: darken($color:  background-color("light-grey"), $amount: 10%);
+        }
+
+        .ngx-slider-selection {
+            background-color: lighten($color: background-color("light-grey"), $amount: 10%);
+        }
+
+        .ngx-slider-bubble {
+            color: white;
+        }
+
+        .ngx-slider-floor, .ngx-slider-ceil, .ngx-slider-bubble.ngx-slider-limit {
+            color: gray;
+        }
+    }
+}
